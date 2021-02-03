@@ -32,24 +32,11 @@ const ImgLogo = styled.img`
     width: 50px;
 `;
 
-const Login = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
-`;
-
-const Button = styled.button`
-    font-size: 12px;
-    padding: 0 5px;
+const Login = styled.button`
+    font-size: 16px;
     border: none;
-    margin: 5px;
     background: transparent;
     color: white;
-`;
-
-const LoginLogo = styled.img`
-    width: 35px;
 `;
 
 export const Navbar = () => (
@@ -59,8 +46,8 @@ export const Navbar = () => (
             <H1>MrDonald's</H1>
         </Logo>
         <Login>
-            <LoginLogo src={signImg} alt="sign"/>
-            <Button>ВОЙТИ</Button>
+            <img src={signImg} alt="enter"/>
+            <p>ВОЙТИ</p>
         </Login>
     </NavbarStyled>
 );
