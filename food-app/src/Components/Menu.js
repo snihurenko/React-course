@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import dbMenu from './DBMenu';
 import { ListItem } from './ListItem';
-import bannerImg from '../image/banner.png';
+import { Banner } from './Banner';
+
 
 const MenuStyled = styled.main`
     background-color: #ccc;
@@ -11,13 +12,6 @@ const MenuStyled = styled.main`
 
 const SectionMenu = styled.section`
     padding: 30px;
-`;
-
-const Banner = styled.div`
-    background-image: url(${bannerImg});
-    background-repeat: no-repeat;
-    height: 210px;
-    width: 100%;
 `;
 
 export const Menu = () => (
