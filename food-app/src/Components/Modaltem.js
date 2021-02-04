@@ -18,6 +18,7 @@ const Modal = styled.div`
     background-color: #fff;
     width: 600px;
     height: 600px;
+    position: relative;
 `;
 
 const Banner = styled.div`
@@ -40,6 +41,19 @@ const Name = styled.p`
     font-size: 30px;
 `;
 
+const Button = styled.button`
+    position: absolute;
+    width: 250px;
+    height: 65px;
+    left: 175px;
+    top: 492px;
+    background-color: #299B01;
+    color: white;
+    font-family: Roboto;
+    font-size: 21px;
+    border: none;
+`;
+
 export const ModalItem = ({openItem, setOpenItem}) => {
     function closeModal(e){
         if(e.target.id === 'overlay'){
@@ -56,6 +70,7 @@ export const ModalItem = ({openItem, setOpenItem}) => {
                     <Name>{openItem.name}</Name>
                     <Name>{openItem.price.toLocaleString('ru-RU', {style: 'currency', currency: 'RUB'})}</Name>
                 </Item>
+                <Button>Добавить</Button>
             </Modal>
         </Overlay>
     )
