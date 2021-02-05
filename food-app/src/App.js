@@ -3,6 +3,7 @@ import { Navbar } from './Components/Navbar';
 import { Menu } from './Components/Menu';
 import { GlobalStyle } from './Components/GlobalStyle';
 import { ModalItem } from './Components/Modaltem';
+import { Order } from './Components/Order';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <div className="App">
         <GlobalStyle/>
         <Navbar/>
+        <Order/>
         <Menu setOpenItem={setOpenItem}/>
         <ModalItem openItem={openItem} setOpenItem={setOpenItem}/>
       </div>

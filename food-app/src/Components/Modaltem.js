@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ButtonCheckout } from './ButtonCheckout';
 
 const Overlay = styled.div`
     position: fixed;
@@ -16,21 +17,28 @@ const Overlay = styled.div`
 
 const Modal = styled.div`
     background-color: #fff;
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
     position: relative;
 `;
 
 const Banner = styled.div`
     width: 100%;
-    height: 200px;
+    height: 150px;
     background-image: url(${({img}) => img});
     background-size: cover;
     background-position: center;
-    margin-bottom: 20px;
 `;
 
-const Item = styled.div`
+const Content = styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 150px);
+    padding: 20px;
+`;
+
+const HeaderContent = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -38,20 +46,7 @@ const Item = styled.div`
 
 const Name = styled.p`
     font-family: 'Pacifico', cursive;
-    font-size: 30px;
-`;
-
-const Button = styled.button`
-    position: absolute;
-    width: 250px;
-    height: 65px;
-    left: 175px;
-    top: 492px;
-    background-color: #299B01;
-    color: white;
-    font-family: Roboto;
-    font-size: 21px;
-    border: none;
+    font-size: 22px;
 `;
 
 export const ModalItem = ({openItem, setOpenItem}) => {
@@ -66,11 +61,13 @@ export const ModalItem = ({openItem, setOpenItem}) => {
         <Overlay id="overlay" onClick={closeModal}>
             <Modal>
                 <Banner img={openItem.img}/>
-                <Item>
-                    <Name>{openItem.name}</Name>
-                    <Name>{openItem.price.toLocaleString('ru-RU', {style: 'currency', currency: 'RUB'})}</Name>
-                </Item>
-                <Button>Добавить</Button>
+                <Content>
+                    <HeaderContent>
+                        <Name>{openItem.name}</Name>
+                        <Name>{openItem.price.toLocaleString('ru-RU', {style: 'currency', currency: 'RUB'})}</Name>
+                    </HeaderContent>
+                    <ButtonCheckout>Добавить</ButtonCheckout>
+                </Content>
             </Modal>
         </Overlay>
     )
