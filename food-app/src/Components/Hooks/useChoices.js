@@ -8,4 +8,4 @@ export const useChoices = (openItem) => {
     };
 
     return {choice, changeChoices};
-}
+};

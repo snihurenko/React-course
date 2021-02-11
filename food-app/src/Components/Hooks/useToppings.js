@@ -21,4 +21,4 @@ export const useToppings = (openItem) => {
     }
 
     return {toppings, checkToppings};
-}
+};

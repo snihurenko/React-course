@@ -42,7 +42,7 @@ export const OrderListItem = ({ order, index, deleteItem, setOpenItem }) => {
         .map(item => item.name).join(', ');
 
     return (
-        <OrderItemStyled onClick={() => setOpenItem({...order, index})}>
+        <OrderItemStyled onClick={(e) => e.target.tagName !== 'BUTTON' ? setOpenItem({...order, index}) : null}>
             <ItemName>{order.name} {order.choice}</ItemName>
             <span>{order.count}</span>
             <ItemPrice>{formatCurrency(totalPriceItems(order))}</ItemPrice>
@@ -51,3 +51,4 @@ export const OrderListItem = ({ order, index, deleteItem, setOpenItem }) => {
         </OrderItemStyled>
     )
 };
+
