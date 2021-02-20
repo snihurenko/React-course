@@ -12,6 +12,9 @@ import { useOrders } from './Components/Hooks/useOrders';
 import { useAuth } from './Components/Hooks/useAuth';
 import { useTitle } from './Components/Hooks/useTitle';
 import { useDB } from './Components/Hooks/useDB';
+import { OrderConfirm } from './Components/Order/OrderConfirm';
+import { useOrderConfirm } from './Components/Hooks/useOrderConfirm';
+import { Context } from './Components/Functions/context';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAe1mrxOlPGU7AbsoPvZG6HH_ZntKlzC8k",
@@ -30,19 +33,29 @@ function App() {
   const openItem = useOpenItem();
   const orders = useOrders();
   const database = firebase.database();
-  useTitle(openItem.openItem);
   const dbMenu = useDB(database);
+  const orderConfirm = useOrderConfirm();
+
+  useTitle(openItem.openItem);
 
   return (
-    <>
+    <Context.Provider value={{
+      auth,
+      openItem,
+      dbMenu,
+      orders,
+      orderConfirm,
+      database
+    }}>
       <div className="App">
         <GlobalStyle/>
-        <Navbar {...auth}/>
-        <Order {...orders} {...openItem} {...auth} database={database}/>
-        <Menu {...openItem} dbMenu={dbMenu}/>
-        { openItem.openItem && <ModalItem {...openItem} {...orders}/> }
+        <Navbar/>
+        <Order/>
+        <Menu/>
+        { openItem.openItem && <ModalItem/> }
+        { orderConfirm.openOrderConfirm && <OrderConfirm/> }
       </div>
-    </>
+    </Context.Provider>
   );
 }
 
